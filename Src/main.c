@@ -1666,6 +1666,8 @@ void runBrushedLoop()
 /*
   check device info from the bootloader, confirming pin code and eeprom location
  */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
 static void checkDeviceInfo(void)
 {
 #define DEVINFO_MAGIC1 0x5925e3da
@@ -1697,6 +1699,7 @@ static void checkDeviceInfo(void)
     // TODO: check pin code and reboot to bootloader if incorrect
 
 }
+#pragma GCC diagnostic pop
 
 int main(void)
 {
